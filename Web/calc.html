@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Simple Calculator </title>
+      <style type="text/css">
+        input[type = "button"]
+        {
+          margin: 0 auto;
+          overflow: hidden;
+          width: 50px;
+          height: 50px;
+          border-radius: 5px;
+          font-size: 24px;
+        }
+        input[type="text"]
+        {
+          background: #green;
+          margin: 0 auto;
+          overflow: hidden;
+          width: 207px;
+          height: 30px;
+          border-radius: 5px;
+          font-size: 24px;
+        }
+      </style>
+    <script type="text/javascript">
+      var result = 1;
+      function put_click(input)
+      {
+         var link_text = document.getElementById("rest");
+         if (link_text.value.length == 0) {
+            link_text.value += input;
+            exit;
+         }
+         var end = link_text.value[link_text.value.length - 1];
+         if (!(end == "-" || end == "+" || end == "*" || end == "/" || end == ".")) {
+            link_text.value += input;
+         }    
+      }
+      function num_click(input)
+      { 
+        var link_text = document.getElementById("rest");
+        link_text.value += input;
+      }
+      function back_click(input)
+      { 
+        var link_text = document.getElementById("rest");
+        link_text.value.splice(link_text.value.length - 1, 1);
+      }
+      function get_char(event)
+      {
+        if (event.which == null)
+          { // IE
+            if (event.keyCode < 32) return null; // спец. символ
+              return String.fromCharCode(event.keyCode)
+          }
+        if (event.which != 0 && event.charCode != 0)
+        {
+          if (event.which < 32) return null; // спец. символ
+            return String.fromCharCode(event.which); // остальные
+        }
+        return null; // спец. символ
+      }
+      function for_keyboard(input)
+      {
+        if (event.charCode == 46) // если точка
+          button_click(".");
+        else // иначе чекаем регуляркой символ
+        {
+          var symbol = get_char(input);
+          if (/(\d|\+|\-|\=|\*|\/)/.test(symbol))
+            button_click(symbol);
+        }
+      }
+      function clearRest(input)
+      {
+        var link_text = document.getElementById("rest");
+        link_text.value = " ";
+      }
+  </script>
+</head>
+  <body bgcolor="pink" name="background" onkeypress="for_keyboard(event)" onload="clearRest(event)">
+    <form name="F">
+    <p><input type="text" readonly id="rest"></p>
+    <input type="button" value="(" onclick="put_click(this.value);">
+    <input type="button" value=")" onclick="put_click(this.value);">
+    <input type="button" value="<-" onclick="back_click(this.value);">
+    <input type="button" value="/" onclick="put_click(this.value);">
+    <br>
+    <input type="button" value="7" onclick="num_click(this.value);">
+    <input type="button" value="8" onclick="num_click(this.value);">
+    <input type="button" value="9" onclick="num_click(this.value);">
+    <input type="button" value="*" onclick="put_click(this.value);">
+    <br>
+    <input type="button" value="4" onclick="num_click(this.value);">
+    <input type="button" value="5" onclick="num_click(this.value);">
+    <input type="button" value="6" onclick="num_click(this.value);">
+    <input type="button" value="-" onclick="put_click(this.value);">
+    <br>
+    <input type="button" value="1" onclick="num_click(this.value);">
+    <input type="button" value="2" onclick="num_click(this.value);">
+    <input type="button" value="3" onclick="num_click(this.value);">
+    <input type="button" value="+" onclick="put_click(this.value);">
+    <br>
+    <input type="button" value="C" onclick="clear_click(this.value);">
+    <input type="button" value="0" onclick="put_click(this.value);">
+    <input type="button" value="." onclick="put_click(this.value);">
+    <input type="button" value="=" onclick="result_click(this.value);">
+  </form>
+  </body>
+</html>

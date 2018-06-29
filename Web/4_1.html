@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head> 
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<title> 4_1 </title>
+		<script>
+			var mainul = document.body.appendChild(document.createElement("ul"));
+
+			var animal = document.createElement("li");
+			animal.innerText = "Животные";
+			mainul.appendChild(animal);
+
+			var animalui = document.createElement("ul");
+			animal.appendChild(animalui);
+
+			var mammals = document.createElement("li");
+			mammals.innerText = "Млекопитающие";
+			animalui.appendChild(mammals);
+
+			var mammalsul = document.createElement("ul");
+			mammals.appendChild(mammalsul);
+			var temp = document.createElement("li");
+			temp.innerText = "Коровы";
+			mammalsul.appendChild(temp);
+
+			temp = document.createElement("li");
+			temp.innerText = "Ослы";
+			mammalsul.appendChild(temp);
+
+			temp = document.createElement("li");
+			temp.innerText = "Собаки";
+			mammalsul.appendChild(temp);
+
+			temp = document.createElement("li");
+			temp.innerText = "Тигры";
+			mammalsul.appendChild(temp);
+
+			var another = document.createElement("li");
+			another.innerText = "Другие";
+			animalui.appendChild(another);
+
+			var anotherui = document.createElement("ul");
+			another.appendChild(anotherui);
+
+			temp = document.createElement("li");
+			temp.innerText = "Змеи";
+			anotherui.appendChild(temp);
+
+			temp = document.createElement("li");
+			temp.innerText = "Птицы";
+			anotherui.appendChild(temp);
+
+			temp = document.createElement("li");
+			temp.innerText = "Ящерицы";
+			anotherui.appendChild(temp);
+
+			var fish = document.createElement("li");
+			fish.innerText = "Рыбы";
+			mainul.appendChild(fish);
+
+			var fishui = document.createElement("ul");
+			fish.appendChild(fishui);
+			
+			var aquarium = document.createElement("li");
+			aquarium.innerText = "Аквариумные";
+			fishui.appendChild(aquarium);
+
+			var aquariumui = document.createElement("ul");
+			aquarium.appendChild(aquariumui);
+
+			temp = document.createElement("li");
+			temp.innerText = "Гуппи";
+			aquariumui.appendChild(temp);
+
+			temp = document.createElement("li");
+			temp.innerText = "Скалярии";
+			aquariumui.appendChild(temp);
+
+			var sea = document.createElement("li");
+			sea.innerText = "Морские";
+			fishui.appendChild(sea);
+
+			var seaui = document.createElement("ul");
+			sea.appendChild(seaui);
+
+			temp = document.createElement("li");
+			temp.innerText = "Морская форель";
+			seaui.appendChild(temp);
+		</script>
+	</body>
+</html>

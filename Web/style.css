@@ -1,0 +1,138 @@
+﻿body{
+	padding: 0;
+	margin: 0;
+}
+.hat{
+	background-color: black;
+}
+.hat img{
+	height: 300px;
+	width: 100%;
+}
+.print{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+}
+.table{
+	display: flex;
+	justify-content: space-around;
+	border: 8px ridge red;
+}
+.Rpole{
+	display: inline-flex;
+	flex: 1 1 25%;
+	border-left: 5px ridge red;
+	justify-content: top;
+	align-items: center;
+	flex-direction: column;
+	background-color: gray;
+}
+.Lpole{
+	display: inline-flex;
+	flex: 1 1 25%;
+	border-right: 5px ridge red;
+	justify-content: top;
+	align-items: center;
+	flex-direction: column;
+	background-color: gray;
+}
+.Rpole img{
+	height: 300px;
+	width: 300px;
+}
+.Lpole img{
+	height: 400px;
+	width: 300px;
+}
+.inform{
+	display: block;
+	width: 50%;
+	text-align: center;
+	background-color: silver;
+	padding: 20px;
+	font-size: 18px;
+}
+.inform img{
+	height: 300px;
+	width: 300px;
+	float: right;
+}
+#spisok{
+	text-align:left;
+}
+.copyrite{
+	display: flex;
+	border-bottom: 8px ridge red;
+	border-left: 8px ridge red;
+	border-right: 8px ridge red;
+	flex-direction: row-reverse;
+	background-color: maroon;
+	padding: 0 10px;
+    color: white;
+    font-size: 20px;
+	font-style: italic;
+    line-height: 30px;
+}
+nav {
+	border-left: 8px ridge red;
+	border-right: 8px ridge red;
+	border-top: 8px ridge red;
+	background-color: maroon;
+}
+nav ul {
+	padding: 0;
+	margin: 0;
+    list-style: none;
+    position: relative;
+}
+nav ul li {
+    display: inline-block;
+    background-color: maroon;
+	border: 3px solid maroon;
+}
+nav a {
+    display: block;
+    padding: 0 10px;
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: none;
+}
+nav a:hover {
+	background-color: gray;
+}
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+ }
+nav ul li:hover > ul {
+    display: inline-block;
+}
+nav ul ul li {
+    min-width:170px;
+    float:none;
+    display:list-item;
+    position: relative;
+}
+nav ul ul ul {
+	position: absolute;
+	top:0;
+	left:100%;
+}
+@media print{
+	.hat, nav, .Lpole, .Rpole, .copyrite{
+		display: none;
+	}
+	.table{
+		border: 0;
+		}
+	.inform{
+		width: 100%;
+	}
+	.inform img{
+		display: none;
+	}
+}

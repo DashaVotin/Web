@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Simple Calculator </title>
+      <style type="text/css">
+        input[type="button"]
+        {
+          margin: 0 auto;
+          overflow: hidden;
+          width: 50px;
+          height: 50px;
+          border-radius: 5px;
+          font-size: 24px;
+        }
+        input[type="text"]
+        {
+          background: #green;
+          margin: 0 auto;
+          overflow: hidden;
+          width: 207px;
+          height: 30px;
+          border-radius: 5px;
+          font-size: 24px;
+        }
+      </style>
+    <script type="text/javascript">
+      var result = 1;
+      function button_click(input)
+      {
+        var link_text = document.getElementById("rest");
+        if (result != result)
+          {link_text.value = ""; result = 1;}
+        if (/(\+|\-|\*|\/|\.)/.test(input) && input !=".")
+        {
+          if (/(\+|\-|\*|\/|\.)/.test(link_text.value[link_text.value.length - 1]))
+            link_text.value = link_text.substring(0, link_text.value.length - 1);
+          if (link_text.value.length != 0)
+            link_text.value = (+eval(link_text.value).toFixed(7));
+          result = Number(link_text.value);
+        }
+          if (input != '.' && input != 'CE' && input != '=')
+            link_text.value += input;
+          else
+          {
+            if (input == 'CE')
+              link_text.value = '';
+            if (input == '=')
+            {
+              var txt_len = link_text.value.length, txt_value = link_text.value;
+              if (link_text.value[link_text.value.length - 1] == ".")
+                link_text.value = txt_value.substring(0, (link_text.value.length - 1));
+              link_text.value = (+eval(link_text.value).toFixed(7));
+              result = Number(link_text.value);
+            }
+            if (input == '.')
+            {
+              var l = link_text.value.length, check_dot = 0;
+              if (l != 0 && (/\d/).test(link_text.value[l - 1]))
+                check_dot = 1;
+              while (l != 0 && (/(\d|\.)/).test(link_text.value[l - 1]))
+              {
+                if (link_text.value[l - 1] == '.')
+                {
+                  check_dot = 0;
+                  break;
+                }
+                l--;
+              }
+              if (check_dot == 1)
+                link_text.value += input;
+            }
+          }
+      }
+      function get_char(event)
+      {
+        if (event.which == null)
+          { // IE
+            if (event.keyCode < 32) return null; // спец. символ
+              return String.fromCharCode(event.keyCode)
+          }
+        if (event.which != 0 && event.charCode != 0)
+        {
+          if (event.which < 32) return null; // спец. символ
+            return String.fromCharCode(event.which); // остальные
+        }
+        return null; // спец. символ
+      }
+      function for_keyboard(input)
+      {
+        if (event.charCode == 46) // если точка
+          button_click(".");
+        else // иначе чекаем регуляркой символ
+        {
+          var symbol = get_char(input);
+          if (/(\d|\+|\-|\=|\*|\/)/.test(symbol))
+            button_click(symbol);
+        }
+      }
+  </script>
+</head>
+  <body bgcolor="42AAFFF" name="background" onkeypress="for_keyboard(event)">
+    <input type="text" readonly id="rest">
+    <br>
+    <input type="button" value="7" onclick="button_click(this.value);">
+    <input type="button" value="8" onclick="button_click(this.value);">
+    <input type="button" value="9" onclick="button_click(this.value);">
+    <input type="button" value="+" onclick="button_click(this.value);">
+    <br>
+    <input type="button" value="4" onclick="button_click(this.value);">
+    <input type="button" value="5" onclick="button_click(this.value);">
+    <input type="button" value="6" onclick="button_click(this.value);">
+    <input type="button" value="-" onclick="button_click(this.value);">
+    <br>
+    <input type="button" value="1" onclick="button_click(this.value);">
+    <input type="button" value="2" onclick="button_click(this.value);">
+    <input type="button" value="3" onclick="button_click(this.value);">
+    <input type="button" value="*" onclick="button_click(this.value);">
+    <br>
+    <input type="button" value="CE" onclick="button_click(this.value);">
+    <input type="button" value="0" onclick="button_click(this.value);">
+    <input type="button" value="=" onclick="button_click(this.value);">
+    <input type="button" value="/" onclick="button_click(this.value);">
+  </body>
+</html>
